@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Text,
   View,
@@ -16,12 +16,46 @@ import DiceFive from './assets/dice5.png'
 import DiceSix from './assets/dice6.png'
 
 const App = () => {
-  const uri = DiceFive
+  const [uri, setUri] = useState(DiceOne); 
+  const rollDice = () => {
+    let randomNumber = Math.floor(Math.random() * 6) + 1;
+
+    switch (randomNumber) {
+      case 1:
+        setUri(DiceOne);
+        break;
+
+      case 2:
+        setUri(DiceTwo);
+        break;
+      
+      case 3:
+        setUri(DiceThree);
+        break;
+
+      case 4:
+        setUri(DiceFour);
+        break;
+
+      case 5:
+        setUri(DiceFive);
+        break;
+
+      case 6:
+        setUri(DiceSix);
+        break;
+        
+      default:
+        setUri(setOne);
+        break;
+    }
+  }
+
   return(
     <>
     <View style={styles.container}>
       <Image style={styles.image} source={uri} />
-      <TouchableOpacity>
+      <TouchableOpacity onPress={rollDice}>
         <Text style={styles.gamePlayButton}>Play Game</Text>
       </TouchableOpacity>
     </View>
