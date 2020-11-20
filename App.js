@@ -3,7 +3,8 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  StyleSheet
 } from "react-native";
 
 
@@ -18,10 +19,10 @@ const App = () => {
   const uri = DiceFive
   return(
     <>
-    <View>
-      <Image source={uri} />
+    <View style={styles.container}>
+      <Image style={styles.image} source={uri} />
       <TouchableOpacity>
-        <Text>Play Game</Text>
+        <Text style={styles.gamePlayButton}>Play Game</Text>
       </TouchableOpacity>
     </View>
     </>
@@ -29,3 +30,27 @@ const App = () => {
 }
 
 export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#222831",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  image: {
+    width: 200,
+    height: 200
+  },
+  gamePlayButton: {
+    fontSize: 20,
+    marginTop: 30,
+    color: "#f2a365",
+    paddingHorizontal: 40,
+    paddingVertical: 10,
+    borderColor: "#30475e",
+    borderRadius: 5,
+    borderWidth: 3,
+    fontWeight: "bold"
+  }
+})
